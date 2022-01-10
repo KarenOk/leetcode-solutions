@@ -36,6 +36,33 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 *
 */
 
+// SOLUTION 1 ( O(N) )
+const twoSum = function (nums, target) {
+	const indexMap = {};
+
+	for (i in nums) {
+		num = nums[i];
+		complement = target - num;
+
+		if (indexMap[complement]) return [i, indexMap[complement]];
+		else indexMap[num] = i;
+	}
+};
+
+// SOLUTION 2 ( O(N) )
+const twoSum = function (nums, target) {
+	const complements = {};
+
+	for (i in nums) {
+		num = nums[i];
+		complement = target - num;
+
+		if (complements[num]) return [i, complements[num]];
+		else complements[complement] = i;
+	}
+};
+
+// SOLUTION 3 ( O(N^2) )
 const twoSum = function (nums, target) {
 	for (let i = 0; i < nums.length - 1; i++) {
 		for (let j = i + 1; j < nums.length; j++) {

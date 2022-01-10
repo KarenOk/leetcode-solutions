@@ -38,8 +38,28 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-    		for i in range(len(nums) - 1):
-    				for j in range(i + 1, len(nums)):
-    						if nums[i] + nums[j] == target:
-    								return [i, j]
+        # Solution 1 ( O(N) )
+        indexMapper = {}
+        for i, num in enumerate(nums):
+                complement 	= target - num
 
+                if indexMapper.get(complement) is not None:
+                    return [i, indexMapper[complement]]
+                else:
+                    indexMapper[num] = i
+
+        # Solution 2 ( O(N) )
+        complements = {}
+        for i, num in enumerate(nums):
+                complement 	= target - num
+
+                if complements.get(num) is not None:
+                    return [i, complements[num]]
+                else:
+                    complements[complement] = i
+
+        # Solution 3 ( O(N ^ 2) )
+        for i in range(len(nums) - 1):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                        return [i, j]
