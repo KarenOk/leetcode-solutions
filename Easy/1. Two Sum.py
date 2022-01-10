@@ -1,6 +1,4 @@
-/*
-*
-* 
+"""
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -33,13 +31,15 @@ Only one valid answer exists.
  
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
-*
-*/
 
-const twoSum = function (nums, target) {
-	for (let i = 0; i < nums.length - 1; i++) {
-		for (let j = i + 1; j < nums.length; j++) {
-			if (nums[i] + nums[j] === target) return [i, j];
-		}
-	}
-};
+"""
+
+from typing import List
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    		for i in range(len(nums) - 1):
+    				for j in range(i + 1, len(nums)):
+    						if nums[i] + nums[j] == target:
+    								return [i, j]
+
