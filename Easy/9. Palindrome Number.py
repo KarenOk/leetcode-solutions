@@ -34,5 +34,17 @@ class Solution:
                 p2 = p2 - 1
 
         return True
+
+        # Solution (Recursive)
+        if type(x) != str:
+            x = str(x)
+
+        if not x:
+            return True
+
+        if x[0] == x[len(x) - 1]:
+            return self.isPalindrome(x[1:len(x) -  1])
+        else:
+            return False
    
         

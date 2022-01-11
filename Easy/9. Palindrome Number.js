@@ -22,7 +22,7 @@
  * 
  */
 
-// Solution ( O(n) )
+// Solution 2( O(n) )
 var isPalindrome = function (x) {
 	x = String(x);
 
@@ -38,4 +38,14 @@ var isPalindrome = function (x) {
 	}
 
 	return true;
+};
+
+// Solution (Recursive)
+var isPalindrome = function (x) {
+	if (typeof x !== "string") x = String(x);
+
+	if (!x) return true; // base case
+
+	if (x[0] === x[x.length - 1]) return isPalindrome(x.slice(1, x.length - 1));
+	else return false;
 };
